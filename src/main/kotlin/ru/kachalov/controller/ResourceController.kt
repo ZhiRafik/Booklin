@@ -10,7 +10,9 @@ interface ResourceController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createResource(@RequestBody request: ResourceRequest, userId: Long): ResourceResponse
+    fun createResource(@RequestBody request: ResourceRequest,
+                       @RequestParam userId: Long
+    ): ResourceResponse
 
     @GetMapping("/{id}")
     fun getResourceById(@PathVariable id: Long): ResourceResponse

@@ -12,8 +12,9 @@ interface BookingRepository: JpaRepository<Booking, Long> {
 
     fun findAllByStatus(status: BookingStatus): List<Booking>
 
-    fun existsByResource_IdAndStartTimeLessThanAndEndTimeGreaterThan(
+    fun existsByResource_IdAndStatusInAndStartTimeLessThanAndEndTimeGreaterThan(
         resourceId: Long,
+        statuses: List<BookingStatus>,
         endTime: LocalDateTime,
         startTime: LocalDateTime
     ): Boolean
